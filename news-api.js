@@ -1,5 +1,8 @@
+require('dotenv').config();
 const NewsAPI = require('newsapi');
-const newsapi = new NewsAPI('a30ad9d2ef7f49268b6c43267c62a1ca');
+const keys = require ('./keys.js')
+console.log(keys);
+const newsapi = new NewsAPI(keys.newsapi.apikey);
 var headline = process.argv[2];
 newsapi.v2.everything({
     q: headline,
@@ -11,8 +14,5 @@ newsapi.v2.everything({
     sortBy: 'relevancy',
     page: 2
   }).then(response => {
-    // console.log(response);
-    console.log(response[0].articles);
-    // console.log("Date that the article was published" + response);
-    // console.log("Url to article: " + response);
+    console.log(response);
   });

@@ -1,0 +1,28 @@
+{
+  "name": "liri-node-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "OMDB-Api.js",
+  "dependencies": {
+    "dotenv": "^6.0.0",
+    "keys": "^0.1.2",
+    "keys.js": "^1.0.2",
+    "newsapi": "^2.2.2",
+    "node-spotify-api": "^1.0.7",
+    "request": "^2.87.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nicholas-harvey/liri-node-app.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nicholas-harvey/liri-node-app/issues"
+  },
+  "homepage": "https://github.com/nicholas-harvey/liri-node-app#readme"
+}
