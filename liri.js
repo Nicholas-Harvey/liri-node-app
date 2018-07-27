@@ -58,9 +58,13 @@ newsapi.v2.everything({
     to: '2017-12-12',
     language: 'en',
     sortBy: 'relevancy',
-    page: 2
+    page: 2,
+    pageSize: 20
   }).then(response => {
-    console.log(response);
+     console.log("Title: " + (response).articles[0].title);
+    console.log("Author: " + (response).articles[0].author);
+    console.log("Date of Publication: " + (response).articles[0].publishedAt);
+    console.log("URL to full article: " + (response).articles[0].url);
   });
 }
 
@@ -71,11 +75,11 @@ function handleUserRequest(userCommand, userSearch){
         songSearch(userSearch)
         break;
 
-        case "movie-search":
+        case "movie-this":
         movieSearch(userSearch)
         break;
 
-        case "news-search":
+        case "my-news":
         news(userSearch)
         break;
 
