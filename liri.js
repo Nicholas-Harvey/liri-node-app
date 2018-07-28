@@ -50,6 +50,9 @@ if (!title) {
 
 function news(headline) {
 // var headline = process.argv[2];
+// if (!headline) {
+//     headline = "Barrack";
+//   }
 newsapi.v2.everything({
     q: headline,
     sources: 'bbc-news,the-verge',
@@ -59,12 +62,16 @@ newsapi.v2.everything({
     language: 'en',
     sortBy: 'relevancy',
     page: 2,
-    pageSize: 20
+    pageSize: [20]
   }).then(response => {
      console.log("Title: " + (response).articles[0].title);
     console.log("Author: " + (response).articles[0].author);
     console.log("Date of Publication: " + (response).articles[0].publishedAt);
     console.log("URL to full article: " + (response).articles[0].url);
+    // console.log("Title: " + (response).articles[1].title);
+    // console.log("Author: " + (response).articles[1].author);
+    // console.log("Date of Publication: " + (response).articles[1].publishedAt);
+    // console.log("URL to full article: " + (response).articles[1].url);
   });
 }
 
