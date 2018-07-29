@@ -1,4 +1,15 @@
-// News API
+// Pseudocoding for what could not be completed
+
+// Cannot figure out how to return twenty results for the news article cleanly. I recieve a lot of error messages about the title bieng undefined but this is after there are twenty results returned... almost made it... If twenty results are not returned, try a different search term... 'Trump' definitely gives twenty results...
+
+// I also can not really figure out how to have a default term to search for if there is no search value(like Mr. Nobody for the movies and "The Sign" for the spotfy api) on the news api. All attempts at this result in errors.
+
+// When you don't enter a search term for the spotify api although it does search for "The Sign" but instead logs a different song with a diffenent artist and under inspection I found out that there is featured artist on that song has the name the sign. So essentially this isnt specific enough and may not always return the right answer but I am not too sure how to fix that yet.
+
+// Otherwise, I am really proud of how this turned out!
+
+
+
 var fs = require('fs')
 require('dotenv').config();
 const NewsAPI = require('newsapi');
@@ -14,13 +25,17 @@ var spotify = new Spotify({
 });
 
 function songSearch(song){
+    if (!song) {
+        song = "The Sign";
+        // artist = "Ace of Bass";
+      }
     spotify.search({ type: 'track', query: song }, function(err, data) {
         if ( err ) {
             console.log('Error occurred: ' + err);
             return;
         }
-        console.log("Artist: " + data.tracks.items[0].artists[0].name);
         console.log("Song Title: " + data.tracks.items[0].name);
+        console.log("Artist: " + data.tracks.items[0].artists[0].name);
         console.log("Album: " + data.tracks.items[0].album.name);
         console.log("Preview: " + data.tracks.items[0].external_urls.spotify);
        
@@ -50,9 +65,9 @@ if (!title) {
 
 function news(headline) {
 // var headline = process.argv[2];
-// if (!headline) {
-//     headline = "Barrack";
-//   }
+if(!headline){
+    headline === "Barrack Obama"
+}
 newsapi.v2.everything({
     q: headline,
     sources: 'bbc-news,the-verge',
@@ -62,17 +77,20 @@ newsapi.v2.everything({
     language: 'en',
     sortBy: 'relevancy',
     page: 2,
-    pageSize: [20]
+    pageSize: 20
   }).then(response => {
-     console.log("Title: " + (response).articles[0].title);
-    console.log("Author: " + (response).articles[0].author);
-    console.log("Date of Publication: " + (response).articles[0].publishedAt);
-    console.log("URL to full article: " + (response).articles[0].url);
+    for (i = 0; i < 21; i++){
+    console.log("_______________________________________________________________________________________________________________________________");
+    console.log("Title: " + (response).articles[i].title);
+    console.log("Author: " + (response).articles[i].author);
+    console.log("Date of Publication: " + (response).articles[i].publishedAt);
+    console.log("URL to full article: " + (response).articles[i].url);
+    console.log("_______________________________________________________________________________________________________________________________");
     // console.log("Title: " + (response).articles[1].title);
     // console.log("Author: " + (response).articles[1].author);
     // console.log("Date of Publication: " + (response).articles[1].publishedAt);
     // console.log("URL to full article: " + (response).articles[1].url);
-  });
+  }});
 }
 
 
