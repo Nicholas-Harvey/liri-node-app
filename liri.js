@@ -82,17 +82,13 @@ function news(headline) {
         page: 2,
         pageSize: 20
     }).then(response => {
-        for (i = 0; i < 21; i++) {
+        for (i = 0; i < 20; i++) {
             console.log("_______________________________________________________________________________________________________________________________");
             console.log("Title: " + (response).articles[i].title);
             console.log("Author: " + (response).articles[i].author);
             console.log("Date of Publication: " + (response).articles[i].publishedAt);
             console.log("URL to full article: " + (response).articles[i].url);
             console.log("_______________________________________________________________________________________________________________________________");
-            // console.log("Title: " + (response).articles[1].title);
-            // console.log("Author: " + (response).articles[1].author);
-            // console.log("Date of Publication: " + (response).articles[1].publishedAt);
-            // console.log("URL to full article: " + (response).articles[1].url);
         }
     });
 }
