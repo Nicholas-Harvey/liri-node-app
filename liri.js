@@ -1,6 +1,6 @@
 // Pseudocoding for what could not be completed
 
-// Cannot figure out how to return twenty results for the news article cleanly. I recieve a lot of error messages about the title bieng undefined but this is after there are twenty results returned... almost made it... If twenty results are not returned, try a different search term... 'Trump' definitely gives twenty results...
+// News API will always try to return twenty results and if there are not twenty articles there will be a ton of error messages. The search term 'trump' however, will definitely give you twenty articles with no errors.
 
 // I also can not really figure out how to have a default term to search for if there is no search value(like Mr. Nobody for the movies and "The Sign" for the spotfy api) on the news api. All attempts at this result in errors.
 
@@ -69,7 +69,7 @@ function movieSearch(title) {
 function news(headline) {
     // var headline = process.argv[2];
     if (!headline) {
-        headline === "Barrack Obama"
+        headline === "soccer"
     }
     newsapi.v2.everything({
         q: headline,
